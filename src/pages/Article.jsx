@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 
 function Article() {
   const [articles, setArticles] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // State untuk status login
 
   useEffect(() => {
     axios
       .get("https://64550ab8a74f994b33505ccc.mockapi.io/articles")
-      // .get("https://645611f25f9a4f23613a06ba.mockapi.io/news")
       .then((response) => setArticles(response.data))
       .catch((error) => console.log(error));
   }, []);
@@ -54,6 +54,9 @@ function Article() {
             </Link>
           </div>
         ))}
+        {isLoggedIn && (
+            <Link to="/newarticle" className="btn btn-dark">Create New Article</Link>
+        )}
       </div>
     </div>
   );
