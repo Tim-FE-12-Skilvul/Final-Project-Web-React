@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-import { useLocation, useParams, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 function ArticleDetails() {
   const [article, setArticle] = useState(null);

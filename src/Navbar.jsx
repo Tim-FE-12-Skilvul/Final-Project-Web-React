@@ -11,6 +11,10 @@ function Navbar() {
             <br />
           </li>
           <li>
+            <NavLink to={"/booking"}>Booking Dokter</NavLink>
+            <br />
+          </li>
+          <li>
             <NavLink to={"/article"}>News</NavLink>
           </li>
         </ul>
