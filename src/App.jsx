@@ -7,6 +7,8 @@ import Homepage from "./pages/Homepage";
 import ArtikelPage from "./pages/ArtikelPage";
 import TestimonialPage from "./pages/TestimonialPage";
 import FaqPage from "./pages/FaqPage";
+import KonsulPage from "./pages/KonsulPage";
+import CekPage from "./pages/CekPage";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/testimonial" Component={TestimonialPage} />
           <Route path="/faq" Component={FaqPage} />
           {/* kurang bagian halaman konsultasi dan cek stunting */}
+          <Route path="/cek" Component={CekPage} />
+          <Route path="/konsul" Component={KonsulPage} />
         </Routes>
 
         <FooterComponent />

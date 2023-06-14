@@ -209,7 +209,7 @@ export const testimonial = [
   },
   {
     id: 8,
-    desc: "Simas adalah alat yang sangat berguna bagi para orang tua. Dengan sistem website ini, saya dapat membaca artikel terkait stunting dan mendapatkan pemahaman yang lebih baik tentang kondisi",
+    desc: "Simas adalah alat yang sangat berguna bagi para orang tua. Dengan sistem website ini, saya dapat membaca artikel terkait stunting dan mendapatkan pemahaman yang lebih baik tentang kondisi stunting, Simas benar-benar membantu saya untuk itu semua",
     image: People2,
     name: "Hendri Ardianto",
     status: "Pekerja Kantoran",
@@ -279,19 +279,19 @@ export const faq = [
     id: 2,
     eventKey: 1,
     title: "Apa Saja yang dapat mencegah Stunting?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estlaborum.",
+    desc: "1) Pemenuhan Kebutuhan bagi ibu yang hamil. 2) Memberikan ASI dan MP-ASI. 3) Memberikan akses air bersih dan fasilitas sanitasi yang baik.",
   },
   {
     id: 3,
     eventKey: 2,
     title: "Apa saja gejala Stunting?",
-    desc: "1) Pemenuhan Kebutuhan bagi ibu yang hamil. 2) Memberikan ASI dan MP-ASI. 3) Memberikan akses air bersih dan fasilitas sanitasi yang baik.",
+    desc: "1) Anak berbadan lebih pendek untuk anak seusianya. 2) Proporsi tubuh cenderung normal tetapi anak tampak lebih muda atau kecil untuk usianya. 3) Berat badan rendah untuk anak seusianya dan pertumbuhan tulang tertunda.",
   },
   {
     id: 4,
     eventKey: 3,
     title: "Apa saja penyebab Stunting?",
-    desc: "1) Anak berbadan lebih pendek untuk anak seusianya. 2) Proporsi tubuh cenderung normal tetapi anak tampak lebih muda atau kecil untuk usianya. 3) Berat badan rendah untuk anak seusianya dan pertumbuhan tulang tertunda.",
+    desc: "1) Kurangnya pengetahuan ibu mengenai kesehatan dan gizi sebelum dan pada masa kehamilan. 2) Kurangnya akses ke makanan bergizi. 3) Kurangnya akses air bersih dan sanitasi.",
   },
   {
     id: 5,
