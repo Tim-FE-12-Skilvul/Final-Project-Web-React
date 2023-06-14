@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 
 import NavbarComponent from "./components/NavbarComponent";
-// import FooterComponent from "./components/FooterComponent";
+import FooterComponent from "./components/FooterComponent";
 
-import HomePage from "./pages/HomePage";
+import Homepage from "./pages/Homepage";
 import ArtikelPage from "./pages/ArtikelPage";
 import TestimonialPage from "./pages/TestimonialPage";
 import FaqPage from "./pages/FaqPage";
@@ -15,13 +15,14 @@ function App() {
         <NavbarComponent />
 
         <Routes>
-          <Route path="/" Component={HomePage} />
+          <Route path="/" Component={Homepage} />
           <Route path="/artikel" Component={ArtikelPage} />
           <Route path="/testimonial" Component={TestimonialPage} />
           <Route path="/faq" Component={FaqPage} />
+          {/* kurang bagian halaman konsultasi dan cek stunting */}
         </Routes>
 
-        {/* <FooterComponent /> */}
+        <FooterComponent />
       </div>
     </>
   );
