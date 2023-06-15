@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./App.css";
+import { AuthProvider } from './context/AuthContext'
 import Navbar from "./Navbar";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from "./pages/Home";
 import Article from "./pages/Article";
 import ArticleDetails from "./pages/ArticleDetails";
@@ -10,19 +10,22 @@ import EditArticle from "./pages/EditArticle";
 import NotFound from "./pages/NotFound";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const location = useLocation();
+
+  const isNavbarVisible = location.pathname !== "/login" && location.pathname !== "/daftar";
 
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Article" element={<Article />} />
-        <Route path="/Article/:title" element={<ArticleDetails />} />
-        <Route path="/newarticle" element={<NewArticle />} />
-        <Route path="/Article/editarticle/:title" element={<EditArticle />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      {isNavbarVisible && <Navbar />}
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Home userType={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/daftar" element={<Daftar />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AuthProvider>
     </>
   );
 }
