@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useState } from "react";
 import { AuthProvider } from './context/AuthContext'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import Daftar from "./pages/login-register/Daftar";
-import Login from "./pages/login-register/Login";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
 import Navbar from "./Navbar";
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Home from "./pages/Home";
+import Article from "./pages/Article";
+import ArticleDetails from "./pages/ArticleDetails";
+import NewArticle from "./pages/NewArticle";
+import EditArticle from "./pages/EditArticle";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
