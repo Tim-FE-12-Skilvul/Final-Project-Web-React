@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
-import { useLocation, useParams, Link } from 'react-router-dom';
+import React, { useEffect, useState, useContext } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+// import { AuthContext } from './../../context/AuthContext';
 
 function ArticleDetails() {
   const [article, setArticle] = useState(null);
   const [relatedArticles, setRelatedArticles] = useState([]);
+  const { userType } = useContext(AuthContext);
   const location = useLocation();
 
   useEffect(() => {
-    axios
-      .get(`https://64550ab8a74f994b33505ccc.mockapi.io/articles/${location.state.id}`)
-      .then(response => setArticle(response.data))
+    fetch(`https://64550ab8a74f994b33505ccc.mockapi.io/articles/${location.state.id}`)
+      .then(response => response.json())
+      .then(data => setArticle(data))
       .catch(error => console.log(error));
   }, [location.state.id]);
 
   useEffect(() => {
-    axios
-      .get('https://64550ab8a74f994b33505ccc.mockapi.io/articles')
-      .then(response => {
-        const filteredArticles = response.data.filter(art => art.id !== location.state.id);
+    fetch('https://64550ab8a74f994b33505ccc.mockapi.io/articles')
+      .then(response => response.json())
+      .then(data => {
+        const filteredArticles = data.filter(art => art.id !== location.state.id);
         setRelatedArticles(filteredArticles);
       })
       .catch(error => console.log(error));
@@ -37,10 +37,10 @@ function ArticleDetails() {
   }
 
   return (
-    <div className="container">
+    <div className="article-container" style={{ maxWidth: "1280px", margin: "0 auto", padding: "2rem", textAlign: "center" }}>
       <div className="row">
         <div className="col-lg-9">
-          <div className="card">
+          <div className="card" style={{ padding: "2em" }}>
             <h2 className="mt-2 mb-2" style={{ fontSize: '25px' }}>{article.title}</h2>
             <small className="mt-4 mb-2 " style={{ display: 'flex', justifyContent: 'start' }}> ▪️ {article.publishedAt}</small>
             <img
@@ -60,6 +60,14 @@ function ArticleDetails() {
               </small>
             </div>
           </div>
+          {userType === "admin" && (
+            <Link to={`/article/editarticle/${article.title}`}
+              state={{ id: article.id }}
+              style={{ textDecoration: "none" }}
+              className="btn btn-dark mt-2 mx-3">
+              Edit Article
+            </Link>
+          )}
         </div>
         <div className="col-lg-3">
           {relatedArticles.map(relatedArticle => (

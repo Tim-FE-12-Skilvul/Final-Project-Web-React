@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function NewArticle() {
   const [title, setTitle] = useState('');
@@ -22,10 +20,16 @@ function NewArticle() {
       publishedAt,
     };
 
-    axios
-      .post('https://645611f25f9a4f23613a06ba.mockapi.io/news', articleData)
-      .then(response => {
-        console.log('Article successfully created:', response.data);
+    fetch('https://64550ab8a74f994b33505ccc.mockapi.io/articles', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(articleData),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Article successfully created:', data);
         // Perform any necessary actions after successfully creating the article
       })
       .catch(error => {
@@ -43,8 +47,8 @@ function NewArticle() {
   };
 
   return (
-    <div className='card col-lg-10 mx-auto bg-secondary-subtle text-light-emphasis'>
-      <h2 className='card-title mb-3 text-center'>Create New Article</h2>
+    <div className='card col-lg-10 mx-auto bg-secondary-subtle text-light-emphasis' >
+      <h2 className='card-title fw-bold mb-3 text-center'>Create New Article</h2>
       <form onSubmit={handleSubmit}>
         <div className='mb-2'>
           <input
