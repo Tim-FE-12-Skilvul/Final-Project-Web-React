@@ -42,7 +42,6 @@ function ArticleDetails() {
         <div className="col-lg-9">
           <div className="card">
             <h2 className="mt-2 mb-2" style={{ fontSize: '25px' }}>{article.title}</h2>
-            <small className="mt-4 mb-2 " style={{ display: 'flex', justifyContent: 'start' }}> ▪️ {article.publishedAt}</small>
             <img
               src={article.urlToImage}
               className="card-img"
@@ -50,6 +49,11 @@ function ArticleDetails() {
               style={{ objectFit: 'cover', height: '250px' }}
             />
             <div className="card-body">
+              <small className="mt-4 mb-2 " style={{ display: 'flex', justifyContent: 'start' }}> 
+                <a className="link-class" href={article.url} style={{ textDecoration: 'none', color: 'orange', marginLeft: '4px' }}>
+                  {article.author} 
+                </a> - {article.publishedAt}
+              </small>
               <p className="card-text" style={{ textAlign: 'justify' }}>{article.content}</p>
             </div>
             <div className="card-footer">
@@ -58,6 +62,20 @@ function ArticleDetails() {
                   {article.author}
                 </a>
               </small>
+            </div>
+          </div>
+          <h5 className="card-title" style={{display: 'flex', justifyContent: 'start' }}>Komentar</h5>
+          <div className="card">
+            <form action="" >
+              <label htmlFor="">Nama</label><br />
+              <input type="text" className='name'/><br />
+              <label htmlFor="">Komentar</label><br />
+              <textarea name="" id="" cols="50" rows="5"></textarea><br />
+              <button type="submit" className='btn btn-primary'>Kirim</button>
+            </form>
+            <div className="card-body">
+              <h5 className="card-title">Nama</h5>
+              <p className="card-text">Komentar</p>
             </div>
           </div>
         </div>

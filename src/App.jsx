@@ -7,8 +7,9 @@ import Article from './pages/Article'
 import ArticleDetails from './pages/ArticleDetails'
 import NewArticle from './pages/NewArticle'
 import NotFound from './pages/NotFound'
-import BookingDoctor from './pages/bookDokter/BookingDoctor'
+import BookingDoctor  from './pages/bookDokter/BookingDoctor'
 import DoctorDetail from './pages/bookDokter/DoctorDetail'
+import { DoctorContext } from './pages/bookDokter/context/DoctorContext'
 
 function App() {
   const [count, setCount] = useState(0)
