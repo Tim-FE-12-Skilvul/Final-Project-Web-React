@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-// import { AuthContext } from './../../context/AuthContext';
+import { AuthContext } from '../context/AuthContext';
 
 function ArticleDetails() {
   const [article, setArticle] = useState(null);
