@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Row, Col } from "react-bootstrap";
 import { useParams, useLocation } from 'react-router-dom';
 
 function EditArticle() {
@@ -79,8 +80,11 @@ function EditArticle() {
   };
 
   return (
-    <div className="container">
-      <h2 className="mt-4 mb-4">Edit Article</h2>
+    <div className="faq">
+      <Row className="fw-bold animate__animated animate__fadeInUp animate__delay-1s justify-content-center align-items-center">
+<Col lg={5}>
+
+      <h2 className="card-title fw-bold mb-3 text-center">Edit Artikel</h2>
       <form>
         <div className="mb-2">
           <input
@@ -128,7 +132,7 @@ function EditArticle() {
               <img
                 src={urlToImage}
                 alt="Article"
-                style={{ width: '30%', height: 'auto', border: '2px solid black', marginBottom: '10px' }}
+                style={{display:"flex", justifyContent:"center", width: '30%', height: 'auto', border: '2px solid black', marginBottom: '10px' }}
               />
             )}
           </div>
@@ -142,10 +146,12 @@ function EditArticle() {
           />
         </div>
         {notification && <div className="alert alert-success text-center">{notification}</div>}
-        <button type="button" className="btn btn-primary" onClick={handleEdit}>
+        <button type="button" className='btn btn-dark d-flex justify-content-center mx-auto' onClick={handleEdit}>
           Save Changes
         </button>
       </form>
+</Col>
+      </Row>
     </div>
   );
 }
