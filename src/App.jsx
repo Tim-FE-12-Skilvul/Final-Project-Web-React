@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { AuthProvider } from './context/AuthContext'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from "react-router-dom";
 
 import NavbarComponent from "./components/NavbarComponent";
@@ -9,8 +12,15 @@ import TestimonialPage from "./pages/TestimonialPage";
 import FaqPage from "./pages/FaqPage";
 import KonsulPage from "./pages/KonsulPage";
 import CekPage from "./pages/CekPage";
+import NewArticle from "./pages/NewArticle";
+import EditArticle from "./pages/EditArticle";
+import NotFound from "./pages/NotFound";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const location = useLocation();
+
+  const isNavbarVisible = location.pathname !== "/login" && location.pathname !== "/daftar";
   return (
     <>
       <div>
