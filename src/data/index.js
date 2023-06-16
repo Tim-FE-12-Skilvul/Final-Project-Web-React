@@ -20,7 +20,7 @@ export const navLinks = [
   },
   {
     id: 2,
-    path: "artikel",
+    path: "Artikel",
     text: "Artikel",
   },
   {

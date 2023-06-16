@@ -13,10 +13,11 @@ AOS.init();
 
 import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.render(
-  <Router>
-    <ScroolToTop />
-    <App />
-  </Router>,
-  document.getElementById('root')
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <ScroolToTop />
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
 );

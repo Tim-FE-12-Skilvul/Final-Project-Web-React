@@ -1,4 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { AuthContext } from "../context/AuthContext";
 import HeroImage from "../assets/img/hero.png";
 
 import { artikelTerbaru, dataSwiper, faq } from "../data/index";
@@ -91,7 +92,7 @@ const Homepage = () => {
             <Col className="text-center">
               <button
                 className="btn btn-primary rounded-5 btn-lg "
-                onClick={() => naviget("/artikel")}
+                onClick={() => naviget("/Artikel")}
                 data-aos="fadeUp"
                 data-aos-duration="1000"
               >

@@ -1,5 +1,5 @@
 {
-  "name": "landingpage-react",
+  "name": "final-project",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -25,7 +25,7 @@
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.12.1",
-    "swiper": "^9.4.0"
+    "swiper": "^9.4.0",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {
