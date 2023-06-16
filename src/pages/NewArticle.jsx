@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Row, Col} from 'react-bootstrap';
 
 function NewArticle() {
   const [title, setTitle] = useState('');
@@ -47,7 +48,10 @@ function NewArticle() {
   };
 
   return (
-    <div className='card col-lg-10 mx-auto bg-secondary-subtle text-light-emphasis' >
+    <>
+    <div className="faq">
+    <Row className="fw-bold animate__animated animate__fadeInUp animate__delay-1s justify-content-center align-items-center">
+      <Col lg={5}>
       <h2 className='card-title fw-bold mb-3 text-center'>Create New Article</h2>
       <form onSubmit={handleSubmit}>
         <div className='mb-2'>
@@ -110,9 +114,12 @@ function NewArticle() {
             onChange={(e) => setPublishedAt(e.target.value)}
           />
         </div>
-        <button type="submit" className='btn btn-dark'>Submit</button>
+        <button type="submit" className='btn btn-dark d-flex justify-content-center mx-auto'>Submit</button>
       </form>
+      </Col>
+    </Row>
     </div>
+    </>
   );
 }
 

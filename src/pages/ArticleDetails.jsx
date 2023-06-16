@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { Container, Row, Col } from 'react-bootstrap';
 
 function ArticleDetails() {
   const [article, setArticle] = useState(null);
@@ -40,8 +41,18 @@ function ArticleDetails() {
   }
 
   return (
+    <div className="artikel-page">
+      <div className='artikel min-vh-10'>
+        <Container>
+          <Row style={{paddingBottom: "10px"}}>
+            <Col>
+              <h1 className="fw-bold text-center animate__animated animate__fadeInUp animate__delay-1s">
+              Detail Artikel</h1>
+            </Col>
+          </Row>
+          <Row className="animate__animated animate__fadeInUp animate__delay-1s row-cols-lg-1 row-cols-1 g-10">
     <div className="article-container" style={{ maxWidth: "1280px", margin: "0 auto", padding: "2rem", textAlign: "center" }}>
-      <div className="row">
+      <div className="row" style={{paddingTop: "10px"}}>
         <div className="col-lg-9">
           <div className="card" style={{ padding: "2em" }}>
             <h2 className="mt-2 mb-2" style={{ fontSize: '25px' }}>{article.title}</h2>
@@ -64,7 +75,7 @@ function ArticleDetails() {
             </div>
           </div>
           {userType === "admin" && (
-            <Link to={`/article/editarticle/${article.title}`}
+            <Link to={`/Artikel/editarticle/${article.title}`}
               state={{ id: article.id }}
               style={{ textDecoration: "none" }}
               className="btn btn-dark mt-2 mx-3">
@@ -76,7 +87,7 @@ function ArticleDetails() {
           {relatedArticles.map(relatedArticle => (
             <div className="card mb-2 p-2" key={relatedArticle.id} style={{ display: 'flex', alignItems: 'center' }}>
               <Link
-                to={`/article/${relatedArticle.title}`}
+                to={`/Artikel/${relatedArticle.title}`}
                 state={{ id: relatedArticle.id }}
                 style={{ textDecoration: "none", color: 'black' }}
               >
@@ -94,6 +105,14 @@ function ArticleDetails() {
           ))}
         </div>
       </div>
+    </div>
+
+          </Row>
+
+        </Container>
+
+      </div>
+
     </div>
   );
 }
