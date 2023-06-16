@@ -12,12 +12,14 @@ import Login from "./pages/login-register/Login";
 import ArtikelPage from "./pages/ArtikelPage";
 import TestimonialPage from "./pages/TestimonialPage";
 import FaqPage from "./pages/FaqPage";
-import KonsulPage from "./pages/KonsulPage";
 import CekPage from "./pages/CekPage";
 import ArticleDetails from "./pages/ArticleDetails";
 import NewArticle from "./pages/NewArticle";
 import EditArticle from "./pages/EditArticle";
 import NotFound from "./pages/NotFound";
+import ListDoctor from "./pages/booking-doctor/BookingDoctor";
+import DoctorDetail from "./pages/booking-doctor/DoctorDetail";
+import BookingPayment from "./pages/booking-doctor/BookingPayment";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,23 +29,24 @@ function App() {
   return (
     <>
       <div>
+      {isNavbarVisible && (<NavbarComponent userType={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> )}
         <AuthProvider>
-        {isNavbarVisible && (<NavbarComponent userType={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> )}
-         <Routes>
-           <Route exact path="/" element={<Homepage />} />
-           <Route path="/Artikel" element={<ArtikelPage />} />
-           <Route path="/Artikel/:title" element={<ArticleDetails />} />
-           <Route path="/Artikel/editarticle/:title" element={<EditArticle/>} />
-           <Route path="/Artikel/newarticle" element={<NewArticle />} />
-           <Route path="/testimonial" element={<TestimonialPage />} />
-           <Route path="/faq" element={<FaqPage />} />
-           {/* kurang bagian halaman konsultasi dan cek stunting */}
-           <Route path="/cek" element={<CekPage />} />
-           <Route path="/konsul" element={<KonsulPage />} />
-           <Route path="/daftar" element={<Daftar />} />
-           <Route path="/login" element={<Login />} />
-           <Route path="*" element={<NotFound />} />
-         </Routes>
+        <Routes>
+          <Route exact path="/" element={<Homepage userType={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/Artikel" element={<ArtikelPage />} />
+          <Route path="/Artikel/:title" element={<ArticleDetails />} />
+          <Route path="/Artikel/editarticle/:title" element={<EditArticle/>} />
+          <Route path="/Artikel/newarticle" element={<NewArticle />} />
+          <Route path="/testimonial" element={<TestimonialPage />} />
+          <Route path="/faq" element={<FaqPage />} />
+          <Route path="/cek" element={<CekPage />} />
+          <Route path="/konsul" element={<ListDoctor />} />
+          <Route path="/konsul/:name" element={<DoctorDetail />} />
+          <Route path="/konsul/booking/:name" element={<BookingPayment />} />
+          <Route path="/daftar" element={<Daftar />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
         </AuthProvider>
         <FooterComponent />
       </div>
