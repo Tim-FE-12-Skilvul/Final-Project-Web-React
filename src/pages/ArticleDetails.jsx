@@ -11,7 +11,10 @@ function ArticleDetails() {
   useEffect(() => {
     fetch(`https://64550ab8a74f994b33505ccc.mockapi.io/articles/${location.state.id}`)
       .then(response => response.json())
-      .then(data => setArticle(data))
+      .then(data => {
+      setArticle(data);
+      console.log(data);
+    })
       .catch(error => console.log(error));
   }, [location.state.id]);
 

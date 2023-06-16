@@ -1,7 +1,26 @@
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import { semuaArtikel } from "../data/index";
+import { AuthContext } from "../context/AuthContext";
 
 const ArtikelPage = () => {
+  const [articles, setArticles] = useState([]);
+  const { userType } = useContext(AuthContext); // Get the isLoggedIn and userType values from the AuthContext
+
+  useEffect(() => {
+    fetch("https://64550ab8a74f994b33505ccc.mockapi.io/articles")
+      .then((response) => response.json())
+      .then((data) => setArticles(data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.substr(0, maxLength) + "...";
+  };
+
   return (
     <div className="artikel-page">
       <div className="artikel min-vh-100">
@@ -14,31 +33,46 @@ const ArtikelPage = () => {
             </Col>
           </Row>
           <Row>
-            {semuaArtikel.map((artikelTerbaru) => {
+            {articles.map((article) => {
               return (
                 <Col
-                  key={artikelTerbaru.id}
+                  key={article.id}
                   className="shadow rounded"
                   data-aos="fade-up"
                   data-aos-duration="1000"
-                  data-aos-delay={artikelTerbaru.delay}
+                  data-aos-delay={article.delay}
                 >
                   <img
-                    src={artikelTerbaru.image}
+                    src={article.urlToImage}
                     alt="artikel-terbaru"
                     className="w-100 mb-5 rounded-top"
                   />
-                  <h5 className="mb-5 px-3">{artikelTerbaru.title}</h5>
+                  <h5 className="mb-5 px-3">
+                    {truncateText(article.title, 85)}
+                  </h5>
 
                   <div className="ket d-flex justify-content-between align-items-center px-3 pb-3">
+                      <Link
+                        to={`/Artikel/${article.title}`}
+                        state={{ id: article.id }}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
                     <button className="btn btn-primary rounded-1 ">
-                      {artikelTerbaru.baca}
+                        Baca Artikel
                     </button>
+                      </Link>
                   </div>
                 </Col>
               );
             })}
           </Row>
+          {userType === "admin" && (
+            <Row className="mt-2 justify-content-center">
+              <Link to="/Artikel/newarticle" className=" btn btn-dark">
+                Tambah Artikel Baru
+              </Link>
+            </Row>
+          )}
         </Container>
       </div>
     </div>

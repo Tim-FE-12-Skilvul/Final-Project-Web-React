@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
-
+import React, { useState, useEffect, useContext } from "react";
+import { Navbar, Container, Nav, Dropdown } from "react-bootstrap";
 import { navLinks } from "../data/index";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const NavbarComponent = () => {
   const [changeColor, setChangeColor] = useState(false);
+  const { user, logout } = useContext(AuthContext);
 
   const changeBackgroundColor = () => {
     if (window.scrollY > 10) {
@@ -19,7 +20,7 @@ const NavbarComponent = () => {
     changeBackgroundColor();
 
     window.addEventListener("scroll", changeBackgroundColor);
-  });
+  }, []);
 
   return (
     <div>
@@ -49,9 +50,30 @@ const NavbarComponent = () => {
             </Nav>
 
             <div className="text-center">
-              <button className="btn btn-outline-primary rounded-1">
-                Login
-              </button>
+              {user ? user && (
+                <Dropdown>
+                  <Dropdown.Toggle
+                    variant="outline-primary"
+                    id="profile-dropdown"
+                  >
+                    {user.username}
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item onClick={logout}>
+                      Logout
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              ) : (
+                <button className="btn btn-outline-primary rounded-1">
+                  <Link
+                    to="/login"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    Login
+                  </Link>
+                </button>
+              )}
             </div>
           </Navbar.Collapse>
         </Container>
