@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import HeroImage from "../assets/img/hero.png";
 
 import { artikelTerbaru, dataSwiper, faq } from "../data/index";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import FaqComponent from "../components/FaqComponent";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -114,9 +114,15 @@ const Homepage = () => {
                   <h5 className="mb-5 px-3">{truncateText(article.title, 85)}</h5>
 
                   <div className="ket d-flex justify-content-between align-items-center px-3 pb-3">
+                  <Link
+                        to={`/Artikel/${article.title}`}
+                        state={{ id: article.id }}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
                     <button className="btn btn-primary rounded-1 ">
-                      Baca Artikel
+                        Baca Artikel
                     </button>
+                      </Link>
                   </div>
                 </Col>
               );

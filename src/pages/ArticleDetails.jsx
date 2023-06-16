@@ -76,7 +76,7 @@ function ArticleDetails() {
           {relatedArticles.map(relatedArticle => (
             <div className="card mb-2 p-2" key={relatedArticle.id} style={{ display: 'flex', alignItems: 'center' }}>
               <Link
-                to={`/article/${relatedArticle.title}`}
+                to={`/Artikel/${relatedArticle.title}`}
                 state={{ id: relatedArticle.id }}
                 style={{ textDecoration: "none", color: 'black' }}
               >
