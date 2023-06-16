@@ -39,7 +39,7 @@ export const navLinks = [{
     },
     {
         id: 6,
-        path: "booking",
+        path: "konsul",
         text: "Konsultasi",
     },
 ];

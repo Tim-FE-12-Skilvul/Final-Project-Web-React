@@ -17,8 +17,9 @@ import ArticleDetails from "./pages/ArticleDetails";
 import NewArticle from "./pages/NewArticle";
 import EditArticle from "./pages/EditArticle";
 import NotFound from "./pages/NotFound";
-import ListDoctor from "./pages/booking-doctor/ListDoctor";
+import ListDoctor from "./pages/booking-doctor/BookingDoctor";
 import DoctorDetail from "./pages/booking-doctor/DoctorDetail";
+import BookingPayment from "./pages/booking-doctor/BookingPayment";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -39,8 +40,9 @@ function App() {
           <Route path="/testimonial" element={<TestimonialPage />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/cek" element={<CekPage />} />
-          <Route path="/booking" element={<ListDoctor />} />
-          <Route path="/booking/:name" element={<DoctorDetail />} />
+          <Route path="/konsul" element={<ListDoctor />} />
+          <Route path="/konsul/:name" element={<DoctorDetail />} />
+          <Route path="/konsul/booking/:name" element={<BookingPayment />} />
           <Route path="/daftar" element={<Daftar />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
