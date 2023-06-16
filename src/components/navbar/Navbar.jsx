@@ -2,13 +2,14 @@ import './Navbar.css'
 
 function Navbar () {
     return(
-
-        
-        <nav>
+        <body>
+       
+    <nav>
         <div id="logoNav">
-            <h4>Stunt<span>Free</span></h4>
+            <h4>Stunt Free</h4>
         </div>
-        <div id="menuNav">  
+        
+        <div id="menuNav">
             <ul>
                 <li><a href="./../index.html">Beranda</a></li>
                 <li class="dropdown">
@@ -40,6 +41,8 @@ function Navbar () {
             <i class="fa-solid fa-bars"></i>
         </div>
     </nav>
+    </body>
+    
 
     )
 }
