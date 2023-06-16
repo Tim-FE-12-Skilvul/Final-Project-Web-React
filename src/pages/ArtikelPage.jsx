@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-// import {AuthContext} from "../contexts/AuthContext";
-import { semuaArtikel } from "../data/index";
+import { AuthContext } from "../context/AuthContext";
 
 const ArtikelPage = () => {
   const [articles, setArticles] = useState([]);
-  // const { userType } = useContext(AuthContext); // Get the isLoggedIn and userType values from the AuthContext
+  const { userType } = useContext(AuthContext); // Get the isLoggedIn and userType values from the AuthContext
 
   useEffect(() => {
     fetch("https://64550ab8a74f994b33505ccc.mockapi.io/articles")
@@ -47,17 +47,32 @@ const ArtikelPage = () => {
                     alt="artikel-terbaru"
                     className="w-100 mb-5 rounded-top"
                   />
-                  <h5 className="mb-5 px-3">{truncateText(article.title, 85)}</h5>
+                  <h5 className="mb-5 px-3">
+                    {truncateText(article.title, 85)}
+                  </h5>
 
                   <div className="ket d-flex justify-content-between align-items-center px-3 pb-3">
+                      <Link
+                        to={`/Artikel/${article.title}`}
+                        state={{ id: article.id }}
+                        style={{ textDecoration: "none", color: "inherit" }}
+                      >
                     <button className="btn btn-primary rounded-1 ">
-                    Baca Artikel
+                        Baca Artikel
                     </button>
+                      </Link>
                   </div>
                 </Col>
               );
             })}
           </Row>
+          {userType === "admin" && (
+            <Row className="mt-2 justify-content-center">
+              <Link to="/Artikel/newarticle" className=" btn btn-dark">
+                Tambah Artikel Baru
+              </Link>
+            </Row>
+          )}
         </Container>
       </div>
     </div>

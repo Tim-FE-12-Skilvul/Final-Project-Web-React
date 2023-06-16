@@ -27,23 +27,23 @@ function App() {
   return (
     <>
       <div>
-        {isNavbarVisible && <NavbarComponent />}
         <AuthProvider>
-        <Routes>
-          <Route path="/" element={<Homepage userType={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/Artikel" Component={ArtikelPage} />
-          <Route path="/Artikel/:title" element={<ArticleDetails />} />
-          <Route path="/Artikel/editarticle/:title" element={<EditArticle/>} />
-          <Route path="/Artikel/newarticle" element={<NewArticle />} />
-          <Route path="/testimonial" Component={TestimonialPage} />
-          <Route path="/faq" Component={FaqPage } />
-          {/* kurang bagian halaman konsultasi dan cek stunting */}
-          <Route path="/cek" Component={CekPage} />
-          <Route path="/konsul" Component={KonsulPage} />
-          <Route path="/daftar" element={<Daftar />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        {isNavbarVisible && (<NavbarComponent userType={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> )}
+         <Routes>
+           <Route exact path="/" element={<Homepage />} />
+           <Route path="/Artikel" element={<ArtikelPage />} />
+           <Route path="/Artikel/:title" element={<ArticleDetails />} />
+           <Route path="/Artikel/editarticle/:title" element={<EditArticle/>} />
+           <Route path="/Artikel/newarticle" element={<NewArticle />} />
+           <Route path="/testimonial" element={<TestimonialPage />} />
+           <Route path="/faq" element={<FaqPage />} />
+           {/* kurang bagian halaman konsultasi dan cek stunting */}
+           <Route path="/cek" element={<CekPage />} />
+           <Route path="/konsul" element={<KonsulPage />} />
+           <Route path="/daftar" element={<Daftar />} />
+           <Route path="/login" element={<Login />} />
+           <Route path="*" element={<NotFound />} />
+         </Routes>
         </AuthProvider>
         <FooterComponent />
       </div>
