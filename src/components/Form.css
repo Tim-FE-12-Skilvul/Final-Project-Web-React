@@ -1,0 +1,18 @@
+.output-message {
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.output-message--stunted {
+  background-color: #ffcccc;
+  color: #ff4040;
+}
+
+.output-message--not-stunted {
+  background-color: #ccffcc;
+  color: #4cff4c;
+}
