@@ -31,15 +31,15 @@ function App() {
         <AuthProvider>
         <Routes>
           <Route path="/" element={<Homepage userType={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path="/Artikel" Component={<ArtikelPage />} />
+          <Route path="/Artikel" Component={ArtikelPage} />
           <Route path="/Artikel/:title" element={<ArticleDetails />} />
           <Route path="/Artikel/editarticle/:title" element={<EditArticle/>} />
           <Route path="/Artikel/newarticle" element={<NewArticle />} />
-          <Route path="/testimonial" Component={<TestimonialPage />} />
-          <Route path="/faq" Component={<FaqPage />} />
+          <Route path="/testimonial" Component={TestimonialPage} />
+          <Route path="/faq" Component={FaqPage } />
           {/* kurang bagian halaman konsultasi dan cek stunting */}
-          <Route path="/cek" Component={<CekPage />} />
-          <Route path="/konsul" Component={<KonsulPage />} />
+          <Route path="/cek" Component={CekPage} />
+          <Route path="/konsul" Component={KonsulPage} />
           <Route path="/daftar" element={<Daftar />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />

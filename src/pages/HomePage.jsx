@@ -1,4 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import HeroImage from "../assets/img/hero.png";
 
@@ -17,6 +18,39 @@ import { Pagination } from "swiper";
 
 const Homepage = () => {
   let naviget = useNavigate();
+  const [articles, setArticles] = useState([]);
+  // const { userType } = useContext(AuthContext); // Get the isLoggedIn and userType values from the AuthContext
+
+  useEffect(() => {
+    fetch("https://64550ab8a74f994b33505ccc.mockapi.io/articles")
+      .then(response => response.json())
+      .then(data => {
+        // Mengurutkan data berdasarkan tanggal terbaru
+        data.sort((a, b) => b.id - a.id);
+  
+        // Mengambil 3 data teratas
+        const filteredData = data.slice(0, 3);
+  
+        // Menyimpan data ke state articles
+        setArticles(filteredData);
+  
+        // Lakukan tindakan lain yang diinginkan dengan data ini
+        filteredData.forEach(item => {
+          console.log(item);
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.substr(0, maxLength) + "...";
+  };
+
   return (
     <div className="homepage">
       <header className="w-100 min-vh-100 d-flex align-items-center overflow-hidden">
@@ -63,25 +97,25 @@ const Homepage = () => {
             </Col>
           </Row>
           <Row>
-            {artikelTerbaru.map((artikelTerbaru) => {
+            {articles.map((article) => {
               return (
                 <Col
-                  key={artikelTerbaru.id}
+                  key={article.id}
                   className="shadow rounded"
                   data-aos="fade-up"
                   data-aos-duration="1000"
-                  data-aos-delay={artikelTerbaru.delay}
+                  data-aos-delay={article.delay}
                 >
                   <img
-                    src={artikelTerbaru.image}
+                    src={article.urlToImage}
                     alt="artikel-terbaru"
                     className="w-100 mb-5 rounded-top"
                   />
-                  <h5 className="mb-5 px-3">{artikelTerbaru.title}</h5>
+                  <h5 className="mb-5 px-3">{truncateText(article.title, 85)}</h5>
 
                   <div className="ket d-flex justify-content-between align-items-center px-3 pb-3">
                     <button className="btn btn-primary rounded-1 ">
-                      {artikelTerbaru.baca}
+                      Baca Artikel
                     </button>
                   </div>
                 </Col>
