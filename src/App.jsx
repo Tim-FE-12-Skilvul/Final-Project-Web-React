@@ -6,7 +6,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import NavbarComponent from "./components/NavbarComponent";
 import FooterComponent from "./components/FooterComponent";
 
-import Homepage from "./pages/Homepage";
+import HomePage from "./pages/Homepage";
 import Daftar from "./pages/login-register/Daftar";
 import Login from "./pages/login-register/Login";
 import ArtikelPage from "./pages/ArtikelPage";
@@ -34,7 +34,7 @@ function App() {
         <AuthProvider>
         {isNavbarVisible && (<NavbarComponent userType={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> )}
          <Routes>
-           <Route exact path="/" element={<Homepage />} />
+           <Route exact path="/" element={<HomePage />} />
            <Route path="/Artikel" element={<ArtikelPage />} />
            <Route path="/Artikel/:title" element={<ArticleDetails />} />
            <Route path="/Artikel/editarticle/:title" element={<EditArticle/>} />

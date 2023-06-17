@@ -16,7 +16,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 
-const Homepage = () => {
+const HomePage = () => {
   let naviget = useNavigate();
   const [articles, setArticles] = useState([]);
   // const { userType } = useContext(AuthContext); // Get the isLoggedIn and userType values from the AuthContext
@@ -202,4 +202,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default HomePage;
