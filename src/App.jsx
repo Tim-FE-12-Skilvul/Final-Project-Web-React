@@ -27,6 +27,7 @@ function App() {
   const location = useLocation();
 
   const isNavbarVisible = location.pathname !== "/login" && location.pathname !== "/daftar";
+  const isFooterVisible = location.pathname !== "/login" && location.pathname !== "/daftar";
   return (
     <>
       <div>
@@ -40,7 +41,6 @@ function App() {
            <Route path="/Artikel/newarticle" element={<NewArticle />} />
            <Route path="/testimonial" element={<TestimonialPage />} />
            <Route path="/faq" element={<FaqPage />} />
-           {/* kurang bagian halaman konsultasi dan cek stunting */}
            <Route path="/cek" element={<CekPage />} />
            <Route path="/konsul" element={<BookingDoctor />} />
            <Route path="/konsul/:name" element={<DoctorDetail />} />
@@ -50,7 +50,8 @@ function App() {
            <Route path="*" element={<NotFound />} />
          </Routes>
         </AuthProvider>
-        <FooterComponent />
+        {isFooterVisible && (<FooterComponent userType={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> )}
+        {/* <FooterComponent /> */}
       </div>
     </>
   );

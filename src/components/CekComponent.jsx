@@ -7,7 +7,24 @@ import { faq } from "../data/index";
 const messages = [
   "Semangat ya, Tetap jaga pola makan dan gaya hidup sehat.",
   "Terus pantau pertumbuhan anak, jangan sampai terlewatkan.",
-  // Add more messages...
+  "Pastikan anak mendapat asupan nutrisi yang cukup setiap hari.",
+  "Perhatikan juga pola tidur dan aktivitas anak.",
+  "Jangan ragu untuk berkonsultasi dengan dokter atau ahli gizi jika ada kekhawatiran.",
+  "Ayo jaga asupan sayur dan buah pada menu harian anak.",
+  "Jangan lupa untuk menambahkan protein dan karbohidrat pada makanan anak.",
+  "Ciptakan lingkungan yang mendukung gaya hidup sehat bagi anak.",
+  "Penting untuk melibatkan anak dalam proses memilih dan memasak makanan.",
+  "Ajak anak berolahraga atau bermain di luar rumah untuk menjaga kesehatannya.",
+  "Anak-anak butuh pola makan yang teratur dan terukur untuk mendukung pertumbuhannya.",
+  "Perhatikan juga faktor lingkungan seperti sanitasi dan kebersihan untuk menjaga kesehatan anak.",
+  "Penting untuk memberikan contoh pola makan dan gaya hidup sehat pada anak.",
+  "Ayo kreasikan makanan sehat yang disukai anak untuk membangkitkan selera makan.",
+  "Perbanyak asupan air putih dan hindari minuman manis berlebihan pada anak.",
+  "Selalu perhatikan pertumbuhan dan perkembangan anak dari waktu ke waktu.",
+  "Bersama-sama kita bisa mencegah stunting dan menjaga kesehatan anak.",
+  "Jangan biarkan anak terlalu lama menatap layar gadget atau televisi.",
+  "Pertumbuhan anak tergantung pada nutrisi yang ia terima, jangan sampai terabaikan.",
+  "Ayo mulai dari sekarang, jaga pola makan dan gaya hidup sehat bagi anak.",
 ];
 
 const CekComponent = () => {
@@ -40,9 +57,7 @@ const CekComponent = () => {
     <div className="faq">
       <Row className="fw-bold animate__animated animate__fadeInUp animate__delay-1s justify-content-center align-items-center">
         <Col lg={6}>
-          <div className="card max-width-card" style={{ maxWidth: "600px" }}>
-            <h1 className="card-header text-center">Aplikasi Cek Stunting</h1>
-            <div className="card-body">
+            <h1 className="card-title fw-bold mb-5 text-center">Aplikasi Cek Stunting</h1>
               <form
                 className={`form-stunting ${
                   message ? "form-stunting--result" : ""
@@ -115,8 +130,6 @@ const CekComponent = () => {
                   {message}
                 </div>
               )}
-            </div>
-          </div>
         </Col>
       </Row>
     </div>
