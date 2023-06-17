@@ -127,12 +127,12 @@ function EditArticle() {
           />
         </div>
         <div className="mb-2">
-          <div id="image-preview">
+          <div id="image-preview" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             {urlToImage && (
               <img
                 src={urlToImage}
                 alt="Article"
-                style={{display:"flex", justifyContent:"center", width: '30%', height: 'auto', border: '2px solid black', marginBottom: '10px' }}
+                style={{width: '30%', height: 'auto', border: '2px solid black', marginBottom: '10px' }}
               />
             )}
           </div>
