@@ -6,7 +6,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import NavbarComponent from "./components/NavbarComponent";
 import FooterComponent from "./components/FooterComponent";
 
-import HomePage from "./pages/Homepage";
+import HomePage from "./pages/HomePage";
 import Daftar from "./pages/login-register/Daftar";
 import Login from "./pages/login-register/Login";
 import ArtikelPage from "./pages/ArtikelPage";
