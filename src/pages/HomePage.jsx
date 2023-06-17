@@ -73,7 +73,9 @@ const HomePage = () => {
               >
                 Lihat Selengkapnya
               </button>
-              <button className="btn btn-outline-primary btn-lg rounded-1 me-2 mb-xs-0 mb-2 animate__animated animate__fadeInUp animate__delay-1s">
+              <button className="btn btn-outline-primary btn-lg rounded-1 me-2 mb-xs-0 mb-2 animate__animated animate__fadeInUp animate__delay-1s"
+              onClick={() => naviget("/cek")}
+              >
                 Cek Stunting
               </button>
             </Col>
