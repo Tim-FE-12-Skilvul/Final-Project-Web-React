@@ -48,9 +48,8 @@ const ArtikelPage = () => {
                     className="w-100 mb-5 rounded-top"
                   />
                   <h5 className="mb-5 px-3">
-                    {truncateText(article.title, 85)}
+                    {truncateText(article.title, 43)}
                   </h5>
-
                   <div className="ket d-flex justify-content-between align-items-center px-3 pb-3">
                       <Link
                         to={`/Artikel/${article.title}`}

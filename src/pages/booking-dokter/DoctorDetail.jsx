@@ -27,7 +27,11 @@ function DoctorDetail() {
   };
 
   if (!doctor) {
-    return <p>Loading...</p>;
+    return (
+      <div className='d-flex align-items-center justify-content-center min-vh-100'>
+        Loading...
+      </div>
+    );
   }
 
   return (
