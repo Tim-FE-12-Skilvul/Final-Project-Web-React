@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const AuthContext = createContext();
@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }) => {
     setLoginSuccess(false);
     setUserType('');
     localStorage.removeItem('user'); // Remove user data from localStorage
-    navigate('/login');
+    navigate('/');
   };
 
   const authContextValue = {

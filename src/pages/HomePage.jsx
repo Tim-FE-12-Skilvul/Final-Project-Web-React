@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { AuthContext } from "../context/AuthContext";
 import HeroImage from "../assets/img/hero.png";
 
@@ -19,6 +19,7 @@ import { Pagination } from "swiper";
 const HomePage = () => {
   let naviget = useNavigate();
   const [articles, setArticles] = useState([]);
+  const swiperRef = useRef(null);
   // const { userType } = useContext(AuthContext); // Get the isLoggedIn and userType values from the AuthContext
 
   useEffect(() => {
@@ -49,6 +50,18 @@ const HomePage = () => {
       return text;
     }
     return text.substr(0, maxLength) + "...";
+  };
+
+  const goNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
+  const goPrev = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
   };
 
   return (
@@ -146,58 +159,72 @@ const HomePage = () => {
         </Container>
       </div>
       <div className="testimonial py-5">
-        <Container>
-          <Row>
-            <Col>
-              <h1 className="text-center fw-bold my-5">Testimonial</h1>
-            </Col>
-          </Row>
-          <Row>
-            <Swiper
-              slidesPerView={1}
-              spaceBetween={10}
-              pagination={{
-                clickable: true,
-              }}
-              breakpoints={{
-                640: {
-                  slidesPerView: 1,
-                  spaceBetween: 20,
-                },
-                768: {
-                  slidesPerView: 2,
-                  spaceBetween: 40,
-                },
-                992: {
-                  slidesPerView: 2,
-                  spaceBetween: 50,
-                },
-                1200: {
-                  slidesPerView: 3,
-                  spaceBetween: 50,
-                },
-              }}
-              modules={[Pagination]}
-              className="mySwiper"
-            >
-              {dataSwiper.map((data) => {
-                return (
-                  <SwiperSlide key={data.id} className="shadow-sm">
-                    <p className="desc">{data.desc}</p>
-                    <div className="people">
-                      <img src={data.image} alt="" />
-                      <div>
-                        <h5 className="mb-1">{data.name}</h5>
-                        <p className="m-0 fw-bold">{data.status}</p>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
-          </Row>
-        </Container>
-      </div>
+  <Container>
+    <Row>
+      <Col>
+        <h1 className="text-center fw-bold my-5">Testimonial</h1>
+      </Col>
+    </Row>
+    <Row className="d-flex flex-nowrap justify-content-between align-items-center">
+    <Col xs={1}>
+        <button className="btn btn-secondary" onClick={goPrev}>
+        &#8678;
+        </button>
+      </Col>
+      <Col xs={10}>
+        <Swiper
+          ref={swiperRef}
+          slidesPerView={1}
+          spaceBetween={10}
+          pagination={{
+            clickable: true,
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+            992: {
+              slidesPerView: 2,
+              spaceBetween: 50,
+            },
+            1200: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+          }}
+          modules={[Pagination]}
+          className="mySwiper"
+        >
+          {dataSwiper.map((data) => {
+            return (
+              <SwiperSlide key={data.id} className="shadow-sm">
+                <p className="desc">{data.desc}</p>
+                <div className="people">
+                  <img src={data.image} alt="" />
+                  <div>
+                    <h5 className="mb-1">{data.name}</h5>
+                    <p className="m-0 fw-bold">{data.status}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </Col>
+      <Col xs={1}>
+        <button className="btn btn-secondary" onClick={goNext}>
+        &#8680;
+        </button>
+      </Col>
+    </Row>
+  </Container>
+</div>
+
       {/* bagian FAQ */}
       <FaqComponent />
     </div>

@@ -37,7 +37,11 @@ function ArticleDetails() {
   };
 
   if (!article) {
-    return <div>Loading...</div>;
+    return (
+      <div className='d-flex align-items-center justify-content-center min-vh-100'>
+        Loading...
+      </div>
+    );
   }
 
   return (
